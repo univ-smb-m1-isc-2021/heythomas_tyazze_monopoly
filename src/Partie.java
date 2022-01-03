@@ -56,7 +56,5 @@ public class Partie {
     	
     	partie.inscrireJoueur("Thomas");
     	partie.inscrireJoueur("Pierrot");
-    	
-    	partie.lancerJeu();
     }
 }
