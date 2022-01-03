@@ -16,6 +16,9 @@ public class Partie {
 
     public void lancerJeu() {
     	definirOrdre();
+    	for(int i = 0; i < joueur.size(); i++) {
+    		joueur.get(i).estSur = plateau.cases.get(0);
+    	}
     	lancerPartie();
     }
 
@@ -26,7 +29,14 @@ public class Partie {
     public void lancerPartie() {
     	boolean game = true;
     	while(game) {
+    		System.out.println("Au tour de " + joueur.get(joueurCourant).nom + ", actuellement sur la case \"" + joueur.get(joueurCourant).estSur.nom + "\"");
     		game = joueur.get(joueurCourant).jouer();
+    		if(joueurCourant == joueur.size()-1) {
+    			joueurCourant = 0;
+    		}
+    		else {
+    			joueurCourant++;
+    		}
     	}    
     }
 
@@ -39,7 +49,7 @@ public class Partie {
     }*/
 
     public void finPartie() {
-    	System.out.println("Partie terminee, gagnant : " + joueur.get(0).nom);
+    	System.out.println("Partie terminée, gagnant : " + joueur.get(0).nom);
     }
     
     public static void main(String[] args) {
@@ -56,5 +66,7 @@ public class Partie {
     	
     	partie.inscrireJoueur("Thomas");
     	partie.inscrireJoueur("Pierrot");
+    	
+    	partie.lancerJeu();
     }
 }

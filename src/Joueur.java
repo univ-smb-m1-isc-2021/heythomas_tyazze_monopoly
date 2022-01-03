@@ -8,11 +8,11 @@ public class Joueur {
 
     public CasePropriete casePropriete;
     
-    public De de;
+    public De de = new De();
 
     public boolean jouer() {
     	deplacer(lancerDe());
-    	System.out.println(nom + " est sur la case " + estSur.nom);
+    	System.out.println(nom + " est sur la case \"" + estSur.nom + "\"");
     	return true;
     }
 

@@ -4,8 +4,7 @@ public class Kase {
     public String nom;
 
     public Kase suivant() {
-        // TODO Auto-generated return
-        return null;
+        return suivant;
     }
 
     public void atterrirSurCase(final Joueur j) {
