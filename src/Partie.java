@@ -39,7 +39,7 @@ public class Partie {
     }*/
 
     public void finPartie() {
-    	System.out.println("Partie terminée, gagnant : " + joueur.get(0).nom);
+    	System.out.println("Partie terminee, gagnant : " + joueur.get(0).nom);
     }
     
     public static void main(String[] args) {
