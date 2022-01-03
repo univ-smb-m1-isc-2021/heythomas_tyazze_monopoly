@@ -22,5 +22,5 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven and Sonar analysis
-      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=univ-smb-m1-isc-2021_heythomas_tyazze_monopoly
+    - name: Build with Maven #and Sonar analysis
+      run: mvn -B verify #org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=univ-smb-m1-isc-2021_heythomas_tyazze_monopoly
