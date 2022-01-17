@@ -1,7 +1,8 @@
-package test;
+package test.java;
 import static org.junit.jupiter.api.Assertions.*;
+import main.java.Kase;
+
 import org.junit.jupiter.api.Test;
-import main.Kase;
 
 public class testCase {
 	@Test
