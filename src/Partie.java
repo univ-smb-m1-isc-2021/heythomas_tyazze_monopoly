@@ -33,7 +33,7 @@ public class Partie {
     public void lancerPartie() {
     	boolean game = true;
     	while(game) {
-    		System.out.println("\n====================\n\nAu tour de " + joueur.get(joueurCourant).nom + ", actuellement sur la case \"" + joueur.get(joueurCourant).estSur.nom + "\"");
+    		System.out.println("\n===================\n\nAu tour de " + joueur.get(joueurCourant).nom + ", actuellement sur la case \"" + joueur.get(joueurCourant).estSur.nom + "\"");
     		game = joueur.get(joueurCourant).jouer();
     		if(joueurCourant == joueur.size()-1) {
     			joueurCourant = 0;
