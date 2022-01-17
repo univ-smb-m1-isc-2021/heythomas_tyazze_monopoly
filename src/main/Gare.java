@@ -1,6 +1,7 @@
+package main;
 
-public class Terrain extends CasePropriete {
-	
+public class Gare extends CasePropriete {
+
 	public int loyer;
 
     public int prix;
@@ -10,36 +11,65 @@ public class Terrain extends CasePropriete {
     public etatCasePropriete etatCasePropriete;
 	
     // Constructeur
-	public Terrain(String name, int c_loyer, int c_prix, Quartier c_quartier, etatCasePropriete c_etatCasePropriete) {
+	public Gare(String name, int c_loyer, int c_prix, Quartier c_quartier, etatCasePropriete c_etatCasePropriete) {
 		super(name);
 		loyer = c_loyer;
 		prix = c_prix;
 		quartier = c_quartier;
 		etatCasePropriete = c_etatCasePropriete;
 	}
-
+	
+	// Debit du joueur courant
     public void debiter(final Joueur j, float aPayer) {
     	j.solde -= aPayer;
-    	System.out.println("Nouveau solde de " + j.nom + " --> " + j.solde);
+    	System.out.println("Nouveau Solde --> " + j.solde);
     }
-
+    
+    // Verification eligibilite et paiement loyer (selon les regles de la gare)
     public boolean payerLoyer(final Joueur j) {
     	if(etatCasePropriete.proprietaire.nom != j.nom && etatCasePropriete.debitable) {
-    		float aPayer = (loyer + etatCasePropriete.batiment*30)*quartier.modifLoyer(j);
+    		int num = 0;
+    		
+    		for(int i=0; i<quartier.proprietaires.size(); i++) {
+    			if(quartier.proprietaires.get(i).nom == etatCasePropriete.proprietaire.nom) {
+    				num++;
+    			}
+    		}
+    		
+    		float aPayer;
+    		
+    		switch (num) {
+			case 1:
+				aPayer = 25;
+				break;
+			case 2: 
+				aPayer = 50;
+				break;
+			case 3:
+				aPayer = 100;
+				break;
+			case 4:
+				aPayer = 200;
+				break;
+			default:
+				aPayer = 0;
+			}
+
     		if(j.possedeSolde(aPayer)) {
-    			System.out.println("Paiement d'un loyer de " + aPayer + " de " + j.nom + " a " + etatCasePropriete.proprietaire.nom);
         		debiter(j, aPayer);
         		etatCasePropriete.proprietaire.crediter(aPayer);
         		return true;
     		}
     		else {
+    			j.finTour();
     			return false;
     		}
-
     	}
-    	return true;
-    }
 
+		return true;
+    }
+    
+    // Appele a la fin du deplacement du joueur
     public boolean atterrirSurCase(final Joueur j) {
     	payerLoyer(j);
     	if(etatCasePropriete.debitable) {
@@ -49,18 +79,8 @@ public class Terrain extends CasePropriete {
     		return false;
     	}
     }
-
-    public boolean construire(final Joueur j) {
-    	if(j.possedeSolde(50) && etatCasePropriete.proprietaire.nom == j.nom && quartier.estProprietaire(j)) {
-    		debiter(j, 50);
-    		etatCasePropriete.batiment += 1;
-    		return true;
-    	}
-    	else {
-    		return false;
-    	}
-    }
     
+    // Verification et achat de la case
     public boolean achat(Joueur j) {
     	if(j.possedeSolde(prix) && etatCasePropriete.proprietaire.nom != j.nom && !etatCasePropriete.debitable) {
     		debiter(j, prix);
@@ -72,9 +92,5 @@ public class Terrain extends CasePropriete {
     	else {
     		return false;
     	}
-    }
-    
-    public boolean estConstructible(Joueur j) {
-        return quartier.estProprietaire(j);
     }
 }

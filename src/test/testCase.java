@@ -1,17 +1,18 @@
 package test;
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+import main.Kase;
 
 public class testCase {
 	@Test
     void suivant() {
 
-        Kase premKase = new Kase();
-        Kase secdKase = new Kase();
+        Kase premKase = new Kase("test1");
+        Kase secdKase = new Kase("test2");
 
         premKase.suivant = secdKase;
 
-        assertThat(premKase.suivant())
-                .isEqualTo(secdKase);
+        assertTrue(premKase.suivant().equals(secdKase));
     }
 }

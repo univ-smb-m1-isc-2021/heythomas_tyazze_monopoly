@@ -1,3 +1,4 @@
+package main;
 public class CaseFixe extends Kase {
 
 	public CaseFixe(String name) {
