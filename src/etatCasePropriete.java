@@ -1,7 +1,12 @@
 
 public class etatCasePropriete {
     public Joueur proprietaire;
-
-    public String batiment;
-
+    public boolean debitable;
+    public int batiment;
+    
+    public etatCasePropriete() {
+    	proprietaire = new Joueur("NULL");
+        debitable = false;
+        batiment = 0;
+	}
 }
