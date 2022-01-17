@@ -9,7 +9,7 @@ public class testCase {
         Kase premKase = new Kase();
         Kase secdKase = new Kase();
 
-        premKase.suivant = secdKase
+        premKase.suivant = secdKase;
 
         assertThat(premKase.suivant())
                 .isEqualTo(secdKase);
