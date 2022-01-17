@@ -26,7 +26,7 @@ public class Service extends CasePropriete {
     
     // Verification eligibilite et paiement loyer (selon les regles de la case service avec les des)
     public boolean payerLoyer(final Joueur j) {
-    	if(!equals(etatCasePropriete.proprietaire.nom, j.nom) && etatCasePropriete.debitable) {
+    	if(!etatCasePropriete.proprietaire.nom.equals(j.nom) && etatCasePropriete.debitable) {
     		
     		System.out.println("Lance de de pour les services");
     		De de = new De();
@@ -35,7 +35,7 @@ public class Service extends CasePropriete {
     		int num = 0;
     		
     		for(int i=0; i<quartier.proprietaires.size(); i++) {
-    			if(equals(quartier.proprietaires.get(i).nom, etatCasePropriete.proprietaire.nom)) {
+    			if(quartier.proprietaires.get(i).nom.equals(etatCasePropriete.proprietaire.nom)) {
     				num++;
     			}
     		}
@@ -78,7 +78,7 @@ public class Service extends CasePropriete {
     
     // Verification et achat de la case
     public boolean achat(Joueur j) {
-    	if(j.possedeSolde(prix) && !equals(etatCasePropriete.proprietaire.nom, j.nom) && !etatCasePropriete.debitable) {
+    	if(j.possedeSolde(prix) && !etatCasePropriete.proprietaire.nom.equals(j.nom) && !etatCasePropriete.debitable) {
     		debiter(j, prix);
     		etatCasePropriete.debitable = true;
     		etatCasePropriete.proprietaire = j;
