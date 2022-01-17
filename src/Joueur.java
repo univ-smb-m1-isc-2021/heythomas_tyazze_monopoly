@@ -14,7 +14,7 @@ public class Joueur {
     // Tour d'un joueur
     public boolean jouer() {
     	// Deplacement lors du tour
-    	System.out.println(nom + " possede " + solde + "€");
+    	System.out.println(nom + " possede " + solde + "e");
     	boolean res = deplacer(lancerDe());
     	System.out.println(nom + " arrive sur la case " + estSur.nom);
     	
@@ -32,7 +32,7 @@ public class Joueur {
         // Proposition achat de maisons
     	int tmp;
         while(true) {
-            System.out.println("Voulez vous acheter des propriétés ? 1=Oui 2=Non");
+            System.out.println("Voulez vous acheter des proprietes ? 1=Oui 2=Non");
             tmp = scn.nextInt();
             if(tmp == 1) {
             	Kase temp = estSur;
@@ -42,10 +42,10 @@ public class Joueur {
                 		tmp = scn.nextInt();
                 		if(tmp == 1) {
                         	if(temp.construire(this)) {
-                        		System.out.println("Achat réussi");
+                        		System.out.println("Achat reussi");
                         	}
                         	else {
-                        		System.out.println("Achat échoué");
+                        		System.out.println("Achat echoue");
                         	}
                 		}
                 	}
@@ -59,12 +59,12 @@ public class Joueur {
     	return true;
     }
     
-    // Dé
+    // De
     public int lancerDe() {
     	return de.lancer();
     }
     
-    // Système de déplacement, bloc --> suivant
+    // Systeme de deplacement, bloc --> suivant
     public boolean deplacer(final int nombreCase) {
     	for(int i=0; i < nombreCase; i++) {
     		estSur = estSur.suivant();
@@ -72,7 +72,7 @@ public class Joueur {
     	return estSur.atterrirSurCase(this);
     }
     
-    // Pas utilisé (integré a jouer() mais revient au même)
+    // Pas utilise (integre a jouer() mais revient au meme)
     public void acheterCase() {
     	estSur.achat(this);
     }
