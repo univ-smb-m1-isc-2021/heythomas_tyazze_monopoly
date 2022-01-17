@@ -28,7 +28,7 @@ public class Quartier {
     	return 1;
     }
     
-    // Méthode permettant rapidement de savoir si un joueur est proprietaire du quartier complet
+    // Methode permettant rapidement de savoir si un joueur est proprietaire du quartier complet
     public boolean estProprietaire(Joueur j) {
     	if(proprietaires.size() == quartierComplet) {
     		if(proprietaires.get(0).nom == proprietaires.get(1).nom && quartierComplet == 2) {

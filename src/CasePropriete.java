@@ -2,8 +2,8 @@
 public class CasePropriete extends Kase {
 	
     /*
-     * Cette classe est générique, elle possède les comportements par défaut d'une case propriété
-     * Dans les faits, cette classe n'est jamais utilisée, et est toujours réécrite pour un terrain par exemple
+     * Cette classe est generique, elle possede les comportements par defaut d'une case propriete
+     * Dans les faits, cette classe n'est jamais utilisee, et est toujours reecrite pour un terrain par exemple
      */
 	
     public CasePropriete(String name) {

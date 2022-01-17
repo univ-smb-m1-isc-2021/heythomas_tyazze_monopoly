@@ -4,8 +4,8 @@ public class Kase {
     public String nom;
     
     /*
-     * Cette classe est générique, elle possède les comportements par défaut d'une case
-     * Non achetable, sans loyer ni rôle, les classes Terrain/Gare/Service reecrivent ces méthodes "vides"
+     * Cette classe est generique, elle possede les comportements par defaut d'une case
+     * Non achetable, sans loyer ni rele, les classes Terrain/Gare/Service reecrivent ces methodes "vides"
      */
 
     public Kase suivant() {

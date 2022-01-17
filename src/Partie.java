@@ -15,7 +15,7 @@ public class Partie {
     	joueur.add(new Joueur(name));
     }
     
-    // Appel a la boucle de jeu après mélange
+    // Appel a la boucle de jeu apres melange
     public void lancerJeu() {
     	definirOrdre();
     	for(int i = 0; i < joueur.size(); i++) {
@@ -24,7 +24,7 @@ public class Partie {
     	lancerPartie();
     }
     
-    // On mélange la liste des joueurs
+    // On melange la liste des joueurs
     public void definirOrdre() {
     	Collections.shuffle(joueur);
     }
@@ -53,7 +53,7 @@ public class Partie {
     }*/
 
     public void finPartie() {
-    	System.out.println("Partie terminée, gagnant : " + joueur.get(0).nom);
+    	System.out.println("Partie terminee, gagnant : " + joueur.get(0).nom);
     }
     
     public static void main(String[] args) {

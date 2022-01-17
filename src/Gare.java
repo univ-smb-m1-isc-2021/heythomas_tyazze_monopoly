@@ -18,13 +18,13 @@ public class Gare extends CasePropriete {
 		etatCasePropriete = c_etatCasePropriete;
 	}
 	
-	// Débit du joueur courant
+	// Debit du joueur courant
     public void debiter(final Joueur j, float aPayer) {
     	j.solde -= aPayer;
     	System.out.println("Nouveau Solde --> " + j.solde);
     }
     
-    // Verification eligibilité et paiement loyer (selon les règles de la gare)
+    // Verification eligibilite et paiement loyer (selon les regles de la gare)
     public boolean payerLoyer(final Joueur j) {
     	if(etatCasePropriete.proprietaire.nom != j.nom && etatCasePropriete.debitable) {
     		int num = 0;
@@ -68,7 +68,7 @@ public class Gare extends CasePropriete {
 		return true;
     }
     
-    // Appelé a la fin du déplacement du joueur
+    // Appele a la fin du deplacement du joueur
     public boolean atterrirSurCase(final Joueur j) {
     	payerLoyer(j);
     	if(etatCasePropriete.debitable) {
