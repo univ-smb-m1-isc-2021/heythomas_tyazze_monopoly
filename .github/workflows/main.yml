@@ -23,4 +23,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven #and Sonar analysis
-      run: mvn -B verify #org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=univ-smb-m1-isc-2021_heythomas_tyazze_monopoly
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=univ-smb-m1-isc-2021_heythomas_tyazze_monopoly
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
